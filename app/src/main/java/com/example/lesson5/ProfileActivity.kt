@@ -20,6 +20,11 @@ class ProfileActivity : AppCompatActivity() {
 
         val preference = getSharedPreferences("Lesson5", Context.MODE_PRIVATE)
 
+        val loginFromPref = preference.getString("login", "no saved data")
+        tvLogin.setText(loginFromPref)
+        val passwordFromPref = preference.getString("password", "no saved data")
+        tvPassword.setText(passwordFromPref)
+
         btnUpdate.setOnClickListener {
             preference.edit().putString("login", tvLogin.text.toString()).apply()
             preference.edit().putString("password", tvPassword.text.toString()).apply()
